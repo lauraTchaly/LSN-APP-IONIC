@@ -22,7 +22,11 @@ const routes: Routes = [
 		path: '',
 		redirectTo: '/login',
 		pathMatch: 'full'
-	}
+	},  {
+    path: 'contato',
+    loadChildren: () => import('./contato/contato.module').then( m => m.ContatoPageModule)
+  }
+
 ];
 @NgModule({
 	imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
