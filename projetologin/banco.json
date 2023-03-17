@@ -22,10 +22,10 @@
       "nome": "",
       "email": "",
       "celular": "",
-      "endereço": "",
+      "endereco": "",
       "cep": "",
       "dataNasc": "",
-      "descrição": "",
+      "descricao": "",
       "status": false,
       "cpf": 1
 

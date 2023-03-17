@@ -3,9 +3,9 @@ export interface usuario{
     nome: string,
     email: string,
     celular: string,
-    endereço: string,
+    endereco: string,
     cep: string,
     dataNasc: string,
-    descrição: string,
+    descricao: string,
     status: boolean
   }

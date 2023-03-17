@@ -4,6 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <form>
+    <ion-input class="form" type="text" name="email" placeholder="E-mail:">
+      <!-- <del>{{usuario.email}}</del> -->
+    </ion-input>
+    <ion-input class="form" type="text" name="celular" placeholder="Celular:"></ion-input>
+    <ion-input class="form" type="text" name="endereco" placeholder="Endereço:"></ion-input>
+    <ion-input class="form" type="text" name="cep" placeholder="CEP:"></ion-input>
+    <ion-input class="form" type="text" name="dataNasc" placeholder="Data de Nascimento:"></ion-input>
+    <ion-input class="form" type="text" name="descricao" placeholder="Descrição:"></ion-input>
+
+    <ion-card>
+    <ion-input class="form" type="text" name="menssagem" placeholder="Sua Menssagem:"></ion-input>
+  </ion-card>
+ </form>
 
 </ion-content>
