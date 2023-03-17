@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form>
+  <form [formGroup]="formGroup" (ngSubmit)="cadastro()"> 
     <!-- <ion-input class="form" type="text" name="email" placeholder="E-mail:">
       <del>{{usuario.email}}</del>
     </ion-input>
