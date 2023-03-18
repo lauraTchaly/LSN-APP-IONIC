@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { usuario } from '../model/usuario.model';
 import { DatabaseService } from '../servico/database.service';
 import { UtilityService } from '../servico/utility.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+ import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-cadastrar',
   templateUrl: './cadastrar.page.html',
@@ -13,14 +13,14 @@ export class CadastrarPage implements OnInit {
 
   routeCpf = null;
   usuario: any = {};
-  formGroup: FormGroup;
+  formGroup: FormGroup |any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private banco: DatabaseService,
     private router: Router,
     private util: UtilityService,
-    private formBuilder: FormBuilder
+    private fb: FormBuilder
   ) { }
   
 
@@ -31,16 +31,17 @@ export class CadastrarPage implements OnInit {
     if (this.routeCpf){
       this.banco.getOneUsuario(this.routeCpf).subscribe(caixa => {this.usuario = caixa});
     }
-    this.createForm(new usuario());
-  }
-   createForm(usuario:usuario){
-     this.formGroup = this.formBuilder.group({
-       email: [usuario.email],
-       celular: [usuario.celular],
-       endereco: [usuario.endereco],
-       cep: [usuario.dataNasc],
-       descricao: [usuario.descricao]
-     })
+
+    this.formGroup = this.fb.group({
+      email:[''],
+      celular:[''],
+      endereco:[''],
+      cep:[''],
+      dataNasc:[''],
+      descricao:[''],
+		
+		});
+   
    }
 
 
@@ -51,15 +52,16 @@ export class CadastrarPage implements OnInit {
  }
 
  cadastro(){
-   let ref = this.usuario.collection('banco.usuario').doc(this.routeCpf)
-   ref.set(this.formGroup.value).then(()=>{
-    console.log('Cadastro do perfil com sucesso');
-    this.router.navigate(['/perfil']);
-    })
+     let ref = this.usuario.collection('banco.usuario').doc(this.routeCpf)
+    ref.set(this.formGroup.value).then(()=>{
+     console.log('Cadastro do perfil com sucesso');
+     this.router.navigate(['/perfil']);
+      })
     // .catch(err =>{
-  //    console.log('Erro ao cadatrar')
-  //    console.log(err)
-  //  })
+    //  console.log('Erro ao cadatrar')
+    //   console.log(err)
+    // })
+
   
    
    

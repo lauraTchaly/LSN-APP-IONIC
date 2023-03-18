@@ -5,7 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="formGroup" (ngSubmit)="cadastro()"> 
+  <form (ngSubmit)="cadastro()"> 
+    <!-- [formGroup]="formGroup" -->
+
     <!-- <ion-input class="form" type="text" name="email" placeholder="E-mail:">
       <del>{{usuario.email}}</del>
     </ion-input>
@@ -36,7 +38,7 @@
     <ion-input class="form" type="text" name="cep" placeholder="CEP:" [ngModel]="usuario.cep"></ion-input>
     <ion-input class="form" type="text" name="dataNasc" placeholder="Data de Nascimento:" [ngModel]="usuario.dataNasc"> </ion-input>
     <ion-input class="form" type="text" name="descricao" placeholder="Descrição:" [ngModel]="usuario.descricao" ></ion-input> 
-<ion-button type="submit" (click)="cadastro()">Cadastrar</ion-button>
+<ion-button type="submit" (click)="cadastro()" [disabled]="!formGroup.valid">Cadastrar</ion-button>
  </form>
 
 </ion-content>
