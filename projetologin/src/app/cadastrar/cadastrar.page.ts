@@ -55,7 +55,7 @@ export class CadastrarPage implements OnInit {
      let ref = this.usuario.collection('banco.usuario').doc(this.routeCpf)
     ref.set(this.formGroup.value).then(()=>{
      console.log('Cadastro do perfil com sucesso');
-     this.router.navigate(['/perfil']);
+     this.router.navigate(['/tab3']);
       })
     // .catch(err =>{
     //  console.log('Erro ao cadatrar')

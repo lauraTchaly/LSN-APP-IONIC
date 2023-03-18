@@ -29,6 +29,14 @@ const routes: Routes = [
   {
     path: 'cadastrar',
     loadChildren: () => import('./cadastrar/cadastrar.module').then( m => m.CadastrarPageModule)
+  },
+  {
+    path: 'pagamento',
+    loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
+  {
+    path: 'pass',
+    loadChildren: () => import('./pass/pass.module').then( m => m.PassPageModule)
   }
 
 ];
